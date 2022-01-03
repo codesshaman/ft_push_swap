@@ -17,6 +17,8 @@ void	rra(t_stack *stack)
 	t_node	*node;
 	int		*buff;
 
+	if (!stack || !stack->a)
+		return ;
 	buff = malloc(sizeof(int));
 	*buff = *((int *) stack->a->last->content);
 	node = stack->a->last->prev;
