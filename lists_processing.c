@@ -6,7 +6,7 @@
 /*   By: jleslee <jleslee@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/26 13:52:59 by jleslee           #+#    #+#             */
-/*   Updated: 2022/01/02 21:26:23 by jleslee          ###   ########.fr       */
+/*   Updated: 2022/01/03 15:04:59 by jleslee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,16 +32,16 @@ t_lst	*create_list(void)
 void	clear_list(t_lst *list, void (*del)(void*))
 {
 	t_node	*current;
-	t_node	*tmp;
+	t_node	*buff;
 
 	if (list != NULL && del != NULL)
 	{
 		current = list->first;
 		while (current != NULL)
 		{
-			tmp = current->next;
+			buff = current->next;
 			delete_list(list, current, del);
-			current = tmp;
+			current = buff;
 		}
 		free(list);
 	}

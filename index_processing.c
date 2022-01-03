@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   tab_processing.c                                   :+:      :+:    :+:   */
+/*   index_processing.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jleslee <jleslee@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/25 16:15:02 by jleslee           #+#    #+#             */
-/*   Updated: 2022/01/03 12:39:34 by jleslee          ###   ########.fr       */
+/*   Updated: 2022/01/03 14:58:19 by jleslee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ t_index	stack_indexing(t_lst *stack)
 	}
 	return (index);
 }
+
+// Сортировка по индексу
 
 void	sort_by_index(t_index *index)
 {
@@ -57,16 +59,19 @@ void	sort_by_index(t_index *index)
 	}
 }
 
-int	find_index(t_index *index, int value)
+// Поиск по индексу (по отсортированному списку)
+
+int	find_index(t_index *index, int number)
 {
 	int	i;
 
 	i = 0;
 	while (i < index->size)
 	{
-		if (index->pointer[i] == value)
+		if (index->pointer[i] == number)
 			return (i);
-		i++;
+		else
+			i++;
 	}
 	return (0);
 }

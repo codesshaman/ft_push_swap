@@ -6,22 +6,22 @@
 /*   By: jleslee <jleslee@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/02 21:12:49 by jleslee           #+#    #+#             */
-/*   Updated: 2022/01/02 21:12:51 by jleslee          ###   ########.fr       */
+/*   Updated: 2022/01/03 14:35:47 by jleslee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	ft_rra(t_stack *stack)
+void	rra(t_stack *stack)
 {
 	t_node	*node;
-	int		*tmp;
+	int		*buff;
 
-	tmp = malloc(sizeof(int));
-	*tmp = *((int *) stack->a->last->content);
+	buff = malloc(sizeof(int));
+	*buff = *((int *) stack->a->last->content);
 	node = stack->a->last->prev;
 	node->next = NULL;
 	stack->a->last = node;
-	list_add_front(stack->a, tmp);
+	list_add_front(stack->a, buff);
 	ft_putstr_fd("rra\n", 1);
 }

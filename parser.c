@@ -6,56 +6,56 @@
 /*   By: jleslee <jleslee@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/28 13:19:49 by jleslee           #+#    #+#             */
-/*   Updated: 2022/01/03 12:08:06 by jleslee          ###   ########.fr       */
+/*   Updated: 2022/01/03 15:10:44 by jleslee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	arr_parser(t_stack *stacks, int ac, char **av, int start)
+static void	arr_parser(int position, t_stack *stacks, int argc, char **argv)
 {
 	size_t	i;
-	int		*tmp;
+	int		*buff;
 
-	i = start;
-	while (i < (size_t) ac)
+	i = position;
+	while (i < (size_t) argc)
 	{
-		if (!int_checker(av[i]))
+		if (!int_checker(argv[i]))
 		{
 			put_error("Input error!\n");
 			exit(1);
 		}
-		tmp = malloc(sizeof(int));
-		*tmp = ft_atoi(av[i]);
-		list_add_back(stacks->a, tmp);
+		buff = malloc(sizeof(int));
+		*buff = ft_atoi(argv[i]);
+		list_add_back(stacks->a, buff);
 		i++;
 	}
 }
 
-static void	words_parser(t_stack *stacks, char *arg)
+static void	words_parser(t_stack *stacks, char *str)
 {
 	char	**words;
 	size_t	i;
 
-	words = ft_split(arg, ' ');
+	words = ft_split(str, ' ');
 	i = 0;
 	while (words[i] != NULL)
 		i++;
-	arr_parser(stacks, i, words, 0);
+	arr_parser(0, stacks, i, words);
 	i = 0;
 	while (words[i] != NULL)
 		free(words[i++]);
 	free(words);
 }
 
-t_stack	args_parser(int ac, char **av)
+t_stack	args_parser(int argc, char **argv)
 {
 	t_stack	stacks;
 
 	stacks = stack_init();
-	if (ac == 2 && !int_checker(av[1]))
-		words_parser(&stacks, av[1]);
+	if (argc == 2 && !int_checker(argv[1]))
+		words_parser(&stacks, argv[1]);
 	else
-		arr_parser(&stacks, ac, av, 1);
+		arr_parser(1, &stacks, argc, argv);
 	return (stacks);
 }

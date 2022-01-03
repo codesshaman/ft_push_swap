@@ -6,7 +6,7 @@
 /*   By: jleslee <jleslee@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/02 13:40:22 by jleslee           #+#    #+#             */
-/*   Updated: 2022/01/02 13:42:11 by jleslee          ###   ########.fr       */
+/*   Updated: 2022/01/03 14:33:47 by jleslee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,21 +22,21 @@ static void	sort_3_stack(t_stack *stacks)
 	second = *((int *) stacks->a->first->next->content);
 	third = *((int *) stacks->a->last->content);
 	if (first > second && second < third && first < third)
-		ft_sa(stacks);
+		sa(stacks);
 	else if (first > second && second > third)
 	{
-		ft_sa(stacks);
-		ft_rra(stacks);
+		sa(stacks);
+		rra(stacks);
 	}
 	else if (first < second && second > third && first < third)
 	{
-		ft_sa(stacks);
-		ft_ra(stacks);
+		sa(stacks);
+		ra(stacks);
 	}
 	else if (first > second && second < third && first > third)
-		ft_ra(stacks);
+		ra(stacks);
 	else if (first < second && second > third && first > third)
-		ft_rra(stacks);
+		rra(stacks);
 }
 
 static void	sort_4_or_5_stack(t_stack *stacks, int median)
@@ -52,20 +52,20 @@ static void	sort_4_or_5_stack(t_stack *stacks, int median)
 	{
 		if (*((int *) a->first->content) < median)
 		{
-			ft_pb(stacks);
+			pb(stacks);
 			pb_count++;
 		}
 		else
-			ft_ra(stacks);
+			ra(stacks);
 	}
 	sort_3_stack(stacks);
 	if (median > 1)
 	{
 		if (*((int *) b->first->content) < *((int *) b->last->content))
-			ft_sb(stacks);
-		ft_pa(stacks);
+			sb(stacks);
+		pa(stacks);
 	}
-	ft_pa(stacks);
+	pa(stacks);
 }
 
 void	sort_small_stack(t_stack *stacks)
@@ -76,7 +76,7 @@ void	sort_small_stack(t_stack *stacks)
 	first = *((int *) stacks->a->first->content);
 	last = *((int *) stacks->a->last->content);
 	if (stacks->a->size == 2 && first > last)
-		ft_ra(stacks);
+		ra(stacks);
 	else if (stacks->a->size == 3)
 		sort_3_stack(stacks);
 	else if (stacks->a->size == 4)
@@ -105,12 +105,12 @@ void	sort_big_stack(t_stack *stacks)
 		{
 			top = *((int *) stacks->a->first->content);
 			if (((top >> i) & 1) == 1)
-				ft_ra(stacks);
+				ra(stacks);
 			else
-				ft_pb(stacks);
+				pb(stacks);
 		}
 		while (stacks->b->first != NULL)
-			ft_pa(stacks);
+			pa(stacks);
 	}
 }
 

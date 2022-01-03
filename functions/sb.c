@@ -6,20 +6,20 @@
 /*   By: jleslee <jleslee@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/02 21:13:04 by jleslee           #+#    #+#             */
-/*   Updated: 2022/01/02 21:13:06 by jleslee          ###   ########.fr       */
+/*   Updated: 2022/01/03 14:35:58 by jleslee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	ft_sb(t_stack *stack)
+void	sb(t_stack *stack)
 {
 	t_lst	*b;
-	int		tmp;
+	int		buff;
 
 	b = stack->b;
-	tmp = *((int *) b->first->next->content);
+	buff = *((int *) b->first->next->content);
 	*((int *) b->first->next->content) = *((int *) b->first->content);
-	*((int *) b->first->content) = tmp;
+	*((int *) b->first->content) = buff;
 	ft_putstr_fd("sb\n", 1);
 }

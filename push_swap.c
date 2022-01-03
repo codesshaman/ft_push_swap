@@ -6,18 +6,18 @@
 /*   By: jleslee <jleslee@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/22 13:53:46 by jleslee           #+#    #+#             */
-/*   Updated: 2022/01/03 12:45:48 by jleslee          ###   ########.fr       */
+/*   Updated: 2022/01/03 15:11:43 by jleslee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int ac, char **av)
+int	main(int argc, char **argv)
 {
 	t_stack	stacks;
 	t_index	index;
 
-	stacks = args_parser(ac, av);
+	stacks = args_parser(argc, argv);
 	index = stack_indexing(stacks.a);
 	if (dup_checker(&index))
 	{

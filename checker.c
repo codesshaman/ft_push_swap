@@ -6,11 +6,20 @@
 /*   By: jleslee <jleslee@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/02 13:38:42 by jleslee           #+#    #+#             */
-/*   Updated: 2022/01/03 12:24:50 by jleslee          ###   ########.fr       */
+/*   Updated: 2022/01/03 15:00:38 by jleslee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+// Проверка на пробелы
+
+int	space_checker(int c)
+{
+	if (c == ' ' || c == '\t' || c == '\v' || c == '\n' || c == '\f' || c == '\r')
+		return 1;
+	return 0;
+}
 
 // Проверка на дубликаты
 
@@ -34,15 +43,6 @@ int	dup_checker(t_index *index)
 	return (1);
 }
 
-// Проверка на пробелы
-
-int	space_checker(int c)
-{
-	if (c == ' ' || c == '\t' || c == '\v' || c == '\n' || c == '\f' || c == '\r')
-		return 1;
-	return 0;
-}
-
 // Проверка на отсортированность
 
 int	sort_checker(t_index *index)
@@ -61,28 +61,28 @@ int	sort_checker(t_index *index)
 
 // Проверка на целые числа
 
-int	int_checker(const char *nptr)
+int	int_checker(const char *str)
 {
-	int				nbr;
-	size_t			digits;
 	size_t			i;
+	size_t			j;
+	int				num;
 
 	i = 0;
-	nbr = 0;
-	digits = 0;
-	while (space_checker(nptr[i]))
+	j = 0;
+	num = 0;
+	while (space_checker(str[i]))
 		i++;
-	if (nptr[i] == '+' || nptr[i] == '-')
+	if (str[i] == '+' || str[i] == '-')
 		i++;
-	while (ft_isdigit(nptr[i]))
+	while (ft_isdigit(str[i]))
 	{
-		digits++;
-		if ((nbr * 10 + (nptr[i] - '0')) / 10 != nbr)
+		j++;
+		if ((num * 10 + (str[i] - '0')) / 10 != num)
 			return (0);
-		nbr = nbr * 10 + (nptr[i] - '0');
+		num = num * 10 + (str[i] - '0');
 		i++;
 	}
-	return (!nptr[i] && digits);
+	return (!str[i] && j);
 }
 
 // Функция вывода ошибки

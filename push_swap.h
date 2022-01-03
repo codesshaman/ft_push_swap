@@ -6,7 +6,7 @@
 /*   By: jleslee <jleslee@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/24 21:09:05 by jleslee           #+#    #+#             */
-/*   Updated: 2022/01/03 12:41:15 by jleslee          ###   ########.fr       */
+/*   Updated: 2022/01/03 15:10:51 by jleslee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ void	list_add_back(t_lst *list, void *content);
 
 // parser.c
 
-t_stack	args_parser(int ac, char **av);
+t_stack	args_parser(int argc, char **argv);
 
 // stack_processing
 
@@ -90,17 +90,17 @@ void	sort_small_stack(t_stack *stacks);
 void	sort_big_stack(t_stack *stacks);
 
 
-void	ft_sa(t_stack *stack);
-void	ft_sb(t_stack *stack);
-void	ft_ss(t_stack *stack);
-void	ft_pb(t_stack *stack);
-void	ft_pa(t_stack *stack);
-void	ft_ra(t_stack *stack);
-void	ft_rb(t_stack *stack);
-void	ft_rr(t_stack *stack);
-void	ft_rra(t_stack *stack);
-void	ft_rrb(t_stack *stack);
-void	ft_rrr(t_stack *stack);
+void	sa(t_stack *stack);
+void	sb(t_stack *stack);
+void	ss(t_stack *stack);
+void	pb(t_stack *stack);
+void	pa(t_stack *stack);
+void	ra(t_stack *stack);
+void	rb(t_stack *stack);
+void	rr(t_stack *stack);
+void	rra(t_stack *stack);
+void	rrb(t_stack *stack);
+void	rrr(t_stack *stack);
 
 int		ft_get_middle(t_index *index);
 int		ft_is_sorted(t_index *index);
