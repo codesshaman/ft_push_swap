@@ -6,7 +6,7 @@
 /*   By: jleslee <jleslee@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/02 13:40:22 by jleslee           #+#    #+#             */
-/*   Updated: 2022/01/03 14:33:47 by jleslee          ###   ########.fr       */
+/*   Updated: 2022/01/03 15:33:28 by jleslee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ static void	sort_3_stack(t_stack *stacks)
 		rra(stacks);
 }
 
-static void	sort_4_or_5_stack(t_stack *stacks, int median)
+static void	sort_4_5(t_stack *stacks, int median)
 {
 	int		pb_count;
 	t_lst	*a;
@@ -80,9 +80,9 @@ void	sort_small_stack(t_stack *stacks)
 	else if (stacks->a->size == 3)
 		sort_3_stack(stacks);
 	else if (stacks->a->size == 4)
-		sort_4_or_5_stack(stacks, 1);
+		sort_4_5(stacks, 1);
 	else if (stacks->a->size == 5)
-		sort_4_or_5_stack(stacks, 2);
+		sort_4_5(stacks, 2);
 }
 
 void	sort_big_stack(t_stack *stacks)
