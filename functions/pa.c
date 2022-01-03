@@ -17,6 +17,8 @@ void	pa(t_stack *stack)
 	t_node	*list;
 	int		*buff;
 
+	if (!stack->b)
+		return ;
 	buff = malloc(sizeof(int));
 	*buff = *((int *) stack->b->first->content);
 	list_add_front(stack->a, buff);
