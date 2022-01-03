@@ -14,24 +14,6 @@
 
 void	rrr(t_stack *stack)
 {
-	t_node	*preva;
-	t_node	*prevb;
-	int		*buffa;
-	int		*buffb;
-
-	buffa = malloc(sizeof(int));
-	buffb = malloc(sizeof(int));
-	*buffa = *((int *) stack->a->last->content);
-	*buffb = *((int *) stack->b->last->content);
-	preva = stack->a->last->prev;
-	prevb = stack->b->last->prev;
-	preva->next = NULL;
-	prevb->next = NULL;
-	list_add_front(stack->a, buffa);
-	list_add_front(stack->b, buffb);
-	delete_list(stack->a, stack->a->last, free);
-	delete_list(stack->b, stack->b->last, free);
-	stack->a->last = preva;
-	stack->b->last = prevb;
-	ft_putstr_fd("rrr\n", 1);
+	rra(stack);
+	rrb(stack);
 }
