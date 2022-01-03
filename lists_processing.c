@@ -63,21 +63,21 @@ void	delete_list(t_lst *list, t_node *node, void (*del)(void*))
 
 void	list_add_front(t_lst *list, void *content)
 {
-	t_node	*head;
+	t_node	*first;
 	t_node	*last;
 	t_node	*node;
 
-	head = list->first;
+	first = list->first;
 	node = list_create_node(content);
-	if (head == NULL)
+	if (first == NULL)
 		list->first = node;
 	else
 	{
 		last = list->last;
 		if (last == NULL)
-			last = head;
-		node->next = head;
-		head->prev = node;
+			last = first;
+		node->next = first;
+		first->prev = node;
 		list->first = node;
 		list->last = last;
 	}
@@ -88,17 +88,17 @@ void	list_add_front(t_lst *list, void *content)
 
 void	list_add_back(t_lst *list, void *content)
 {
-	t_node	*head;
+	t_node	*first;
 	t_node	*node;
 
 	node = list_create_node(content);
-	head = list->first;
-	if (head == NULL)
+	first = list->first;
+	if (first == NULL)
 		list->first = node;
 	else
 	{
 		if (list->last == NULL)
-			list->last = head;
+			list->last = first;
 		list->last->next = node;
 		list->last = node;
 		node->prev = list->last;
