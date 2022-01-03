@@ -14,18 +14,6 @@
 
 void	ss(t_stack *stack)
 {
-	t_lst	*a;
-	t_lst	*b;
-	int		buffa;
-	int		buffb;
-
-	a = stack->a;
-	b = stack->b;
-	buffa = *((int *) a->first->next->content);
-	buffb = *((int *) b->first->next->content);
-	*((int *) a->first->next->content) = *((int *) a->first->content);
-	*((int *) b->first->next->content) = *((int *) b->first->content);
-	*((int *) a->first->content) = buffa;
-	*((int *) b->first->content) = buffb;
-	ft_putstr_fd("ss\n", 1);
+	sa(stack);
+	sb(stack);
 }
