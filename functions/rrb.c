@@ -17,6 +17,8 @@ void	rrb(t_stack *stack)
 	t_node	*prev;
 	int		*buff;
 
+	if (!stack || !stack->b)
+		return ;
 	buff = malloc(sizeof(int));
 	*buff = *((int *) stack->b->last->content);
 	prev = stack->b->last->prev;
