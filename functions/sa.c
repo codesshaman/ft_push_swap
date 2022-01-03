@@ -17,6 +17,8 @@ void	sa(t_stack *stack)
 	t_lst	*a;
 	int		buff;
 
+	if (!stack || !stack->a)
+		return ;
 	a = stack->a;
 	buff = *((int *) a->first->next->content);
 	*((int *) a->first->next->content) = *((int *) a->first->content);
