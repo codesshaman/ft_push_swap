@@ -17,6 +17,8 @@ void	pb(t_stack *stack)
 	t_node	*list;
 	int		*buff;
 
+	if (!stack->a)
+		return ;
 	buff = malloc(sizeof(int));
 	*buff = *((int *) stack->a->first->content);
 	list_add_front(stack->b, buff);
