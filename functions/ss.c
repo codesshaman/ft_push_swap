@@ -6,7 +6,7 @@
 /*   By: jleslee <jleslee@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/02 21:13:08 by jleslee           #+#    #+#             */
-/*   Updated: 2022/01/03 16:23:00 by jleslee          ###   ########.fr       */
+/*   Updated: 2022/01/03 17:26:14 by jleslee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,4 +16,5 @@ void	ss(t_stack *stack)
 {
 	sa(stack);
 	sb(stack);
+	ft_putstr_fd("ss\n", 1);
 }

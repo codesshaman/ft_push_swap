@@ -6,7 +6,7 @@
 /*   By: jleslee <jleslee@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/02 21:12:57 by jleslee           #+#    #+#             */
-/*   Updated: 2022/01/03 16:22:17 by jleslee          ###   ########.fr       */
+/*   Updated: 2022/01/03 17:26:01 by jleslee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,4 +16,5 @@ void	rrr(t_stack *stack)
 {
 	rra(stack);
 	rrb(stack);
+	ft_putstr_fd("rrr\n", 1);
 }
