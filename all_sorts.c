@@ -113,4 +113,3 @@ void	sort_big_stack(t_stack *stacks)
 			pa(stacks);
 	}
 }
-
